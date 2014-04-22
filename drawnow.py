@@ -34,6 +34,30 @@ def draw_fig():
         must have the variables you're viewing be global: won't work with local
         vars.
     """
+
+ion()
+t = linspace(0, 1, num=1e3)
+f = 1
+x = sin(2*pi*f * t)
+line, = plot(x)
+show()
+for i in linspace(0, 10):
+    x = sin(2*pi*i * t)
+    line.set_ydata(x)
+    draw()
+
+"""
+    for 1D:
+        plot(x)
+        show()
+        for i in linspace(0,1):
+            x = sin(i * t)
+            line.set_ydata(x)
+            draw()
+"""
+
+
+
 #N = 16
 #x = linspace(-1, 1, num=N)
 #x, y = meshgrid(x, x)

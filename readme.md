@@ -3,7 +3,8 @@
 
 Usage:
     
-    `drawnow_init()`
+    from drawnow import drawnow, drawnow_init
+    drawnow_init()
     x = zeros((N,N))
 
     def function_to_draw_figure():
@@ -14,3 +15,8 @@ Usage:
     for i in arange(x):
         x.flat[i] = 1
         drawnow(function_to_draw_figure)
+
+### Installation
+1. Download this repository.
+2. Put `drawnow` in your current folder or the drawnow folder in
+   `../python/site-packages/`.
