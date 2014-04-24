@@ -18,5 +18,5 @@ Usage:
 
 ### Installation
 1. Download this repository.
-2. Put `drawnow` in your current folder or the drawnow folder in
+2. Put `drawnow.py` in your current folder or the drawnow folder in
    `../python/site-packages/`.
