@@ -29,43 +29,21 @@ def draw_fig():
     imshow(z, interpolation='nearest')
     #show()
 
-#def example():
+def example():
     """
         must have the variables you're viewing be global: won't work with local
         vars.
     """
 
-ion()
-t = linspace(0, 1, num=1e3)
-f = 1
-x = sin(2*pi*f * t)
-line, = plot(x)
-show()
-for i in linspace(0, 10):
-    x = sin(2*pi*i * t)
-    line.set_ydata(x)
-    draw()
-
-"""
-    for 1D:
-        plot(x)
-        show()
-        for i in linspace(0,1):
-            x = sin(i * t)
-            line.set_ydata(x)
-            draw()
-"""
+    global N, x, y, z
+    N = 16
+    x = linspace(-1, 1, num=N)
+    x, y = meshgrid(x, x)
+    z = x**2 + y**2
 
 
-
-#N = 16
-#x = linspace(-1, 1, num=N)
-#x, y = meshgrid(x, x)
-#z = x**2 + y**2
-
-
-#drawnow_init()
-#for i in arange(2*N):
-    #z.flat[i] = 0
-    #drawnow(draw_fig)
+    drawnow_init()
+    for i in arange(2*N):
+        z.flat[i] = 0
+        drawnow(draw_fig)
 

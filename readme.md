@@ -15,6 +15,10 @@ Usage:
     for i in arange(x):
         x.flat[i] = 1
         drawnow(function_to_draw_figure)
+        #show() # only if you want to press <enter> each figure update
+
+If you want the program to wait after each figure update, call `show()` after
+`drawnow(function_to_draw_figure)`.
 
 ### Installation
 1. Download this repository.
