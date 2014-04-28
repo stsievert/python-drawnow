@@ -24,11 +24,11 @@ def function_to_draw_figure():
 for i in arange(x):
     x.flat[i] = 1
     drawnow(function_to_draw_figure)
-    #show() # only if you want to press <enter> each figure update
+    #show()
 ```
 
-If you want the program to wait after each figure update, call `show()` after
-`drawnow(function_to_draw_figure)`.
+If you want to wait for confirmation after update, call
+`function_to_draw_figure(); show()` instead of `drawnow(...)`.
 
 ### Installation
 Download this repository and run `python setup.py install`.
