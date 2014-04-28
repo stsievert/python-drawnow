@@ -31,6 +31,4 @@ If you want the program to wait after each figure update, call `show()` after
 `drawnow(function_to_draw_figure)`.
 
 ### Installation
-1. Download this repository.
-2. Put `drawnow.py` in your current folder or the drawnow folder in
-   `../python/site-packages/`.
+Download this repository and run `python setup.py install`.
