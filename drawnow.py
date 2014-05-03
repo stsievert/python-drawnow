@@ -4,7 +4,7 @@ from __future__ import division
 from pylab import *
 import time
 
-def drawnow(draw_fig, wait_secs=1):
+def drawnow(draw_fig, *args, **kwargs):
     """
         draw_fig: (callable, no args by use of python's global scope) your
         function to draw the figure. it should include the figure() call --
@@ -16,10 +16,13 @@ def drawnow(draw_fig, wait_secs=1):
 
         does not work in ipy-qt. only works in the ipython shell.
     """
-    close()
-    draw_fig()
+    dictionary = {}
+    for key in kwargs:
+        dictionary += {"key" : kwargs[key]}
+    clf()
+    draw_fig(**kwargs)
     draw()
-    time.sleep(wait_secs)
+
 
 def drawnow_init():
     ion()
@@ -45,5 +48,5 @@ def example():
     drawnow_init()
     for i in arange(2*N):
         z.flat[i] = 0
-        drawnow(draw_fig)
+        refresh(draw_fig)
 
