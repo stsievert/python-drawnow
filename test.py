@@ -15,6 +15,9 @@ figure()
 for i in arange(4*N):
     z.flat[i] = 1
     drawnow(draw_fig_real, show_once=False)
+    #figure();
+    #draw_fig_real();
+    #show(block=True);
 
 
 

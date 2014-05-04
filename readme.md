@@ -28,8 +28,11 @@ for i in arange(x):
     #show()
 ```
 
-If you want to wait for confirmation after update, call
-`function_to_draw_figure(); show()` instead of `drawnow(...)`.
+If you want to wait for confirmation after update, call `figure();
+function_to_draw_figure(); show(block=True)` instead of `drawnow(...)`.
+
+If you only want to show the figure once, call
+`drawnow(function_to_draw_figure, show_once=True)`
 
 ### Installation
 Download this repository and run `python setup.py install`.
