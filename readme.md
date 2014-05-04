@@ -17,6 +17,7 @@ ion() # enable interactivity, can be default
 x = zeros((N,N))
 
 def function_to_draw_figure():
+    #figure() # don't call, otherwise new window opened
     imshow(x) # python's global scope
     #show()   # don't call show()!
 
