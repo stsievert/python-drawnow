@@ -1,5 +1,5 @@
 from matplotlib.pyplot import clf, show, draw
-def drawnow(draw_fig, show_once=False, *argv, **kwargs):
+def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     """A function to refresh the current figure.
 
     Depends on matplotlib's interactive mode.
@@ -20,6 +20,8 @@ def drawnow(draw_fig, show_once=False, *argv, **kwargs):
     - If two figures open and focus moved between figures, then other figure
       gets cleared.
     - Occaisonally ignores Ctrl-C.
+    - If confirm=True, the running script won't stop to Ctrl-C. Ctrl-Z has to
+      be used to stop IPython.
 
     Usage Example
     -------------
@@ -44,6 +46,7 @@ def drawnow(draw_fig, show_once=False, *argv, **kwargs):
     draw_fig(*argv, **kw)
 
     if show_once: show()
+    elif confirm: show(block=True)
     else:         draw()
 
 
