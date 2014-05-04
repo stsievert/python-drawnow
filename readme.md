@@ -13,7 +13,7 @@ Usage:
 ```python
 from drawnow import drawnow, drawnow_init
 
-ion() # enable interactivity
+ion() # enable interactivity, can be default
 x = zeros((N,N))
 
 def function_to_draw_figure():
