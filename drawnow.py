@@ -13,7 +13,7 @@ def drawnow(draw_fig, show_once=False, *argv, **kwargs):
                the list of parameters to pass ``draw_fig()``
     **kwargs : any
                the keywords to pass to ``draw_fig()``
-    show_once, optional : bool, default: False. 
+    show_once, optional : bool, default == False. 
                If True, will call show() instead of draw(). 
 
     Limitations
@@ -45,36 +45,7 @@ def drawnow(draw_fig, show_once=False, *argv, **kwargs):
     clf()
     draw_fig(*argv, **kw)
 
-    # should we show once? show() causes many windows to open, draw() doesn't
-    if show_once:
-        show()
-    else:
-        draw()
+    if show_once: show()
+    else:         draw()
 
-
-def drawnow_init():
-    ion()
-
-def draw_fig():
-    figure()
-    imshow(z, interpolation='nearest')
-    #show()
-
-def example():
-    """
-        must have the variables you're viewing be global: won't work with local
-        vars.
-    """
-
-    global N, x, y, z
-    N = 16
-    x = linspace(-1, 1, num=N)
-    x, y = meshgrid(x, x)
-    z = x**2 + y**2
-
-
-    drawnow_init()
-    for i in arange(2*N):
-        z.flat[i] = 0
-        refresh(draw_fig)
 
