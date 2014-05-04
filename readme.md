@@ -13,14 +13,14 @@ Usage:
 ```python
 from drawnow import drawnow, drawnow_init
 
-drawnow_init()
+ion() # enable interactivity
 x = zeros((N,N))
 
 def function_to_draw_figure():
-    figure()
     imshow(x) # python's global scope
     #show()   # don't call show()!
 
+figure()
 for i in arange(x):
     x.flat[i] = 1
     drawnow(function_to_draw_figure)
