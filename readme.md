@@ -28,7 +28,7 @@ for i in arange(x):
     #show()
 ```
 
-If you want to wait for confirmation after update, call `drawnow(function_to_draw_figure, confirm=True)`. A note: this ignores Ctrl-C. Ctrl-Z must be used.
+If you want to wait for confirmation after update, call `drawnow(function_to_draw_figure, confirm=True)`.
 
 If you only want to show the figure once, call
 `drawnow(function_to_draw_figure, show_once=True)`

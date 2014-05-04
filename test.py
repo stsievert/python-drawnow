@@ -1,6 +1,6 @@
 
 from __future__ import division
-from pylab import *
+from pylab import zeros, arange, figure, ion, colorbar, imshow
 from drawnow import drawnow
 
 def draw_fig_real():
@@ -15,10 +15,3 @@ figure()
 for i in arange(4*N):
     z.flat[i] = 1
     drawnow(draw_fig_real, show_once=False, confirm=True)
-    #figure();
-    #draw_fig_real();
-    #show(block=True);
-
-
-
-
