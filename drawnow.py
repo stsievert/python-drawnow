@@ -1,5 +1,4 @@
-from __future__ import division
-
+from matplotlib.pyplot import clf, show, draw
 def drawnow(draw_fig, show_once=False, *argv, **kwargs):
     """A function to refresh the current figure.
 
@@ -35,7 +34,6 @@ def drawnow(draw_fig, show_once=False, *argv, **kwargs):
       >>>     z.flat[i] = 0
       >>>     drawnow(draw_fig_real)
     """
-    from matplotlib.pyplot import clf, show, draw
 
     # get the kwargs
     kw = dict()
