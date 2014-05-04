@@ -11,7 +11,7 @@ iteration.
 Usage:
     
 ```python
-from drawnow import drawnow, drawnow_init
+from drawnow import drawnow
 
 ion() # enable interactivity, can be default
 x = zeros((N,N))
