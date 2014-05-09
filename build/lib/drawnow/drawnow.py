@@ -45,6 +45,6 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
 
     if show_once: show()
     else: draw()
-    if confirm: raw_input('Hit <Enter> to continue\n')
+    if confirm: raw_input('Hit <Enter> to continue')
 
 

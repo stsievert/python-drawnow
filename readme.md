@@ -24,7 +24,7 @@ ion() # enable interactivity, can be default
 figure()
 for i in arange(x):
     x.flat[i] = 1
-    refresh(function_to_draw_figure)
+    drawnow(function_to_draw_figure)
 ```
 
 If you want to wait for confirmation after update, call `refresh(function_to_draw_figure, confirm=True)`.
