@@ -1,1 +1,1 @@
-from drawnow import refresh
+from drawnow import drawnow

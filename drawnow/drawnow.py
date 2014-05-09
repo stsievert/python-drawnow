@@ -1,5 +1,5 @@
 from matplotlib.pyplot import clf, show, draw
-def refresh(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
+def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     """A function to refresh the current figure.
 
     Depends on matplotlib's interactive mode.
