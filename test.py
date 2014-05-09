@@ -13,4 +13,4 @@ ion()
 figure()
 for i in arange(4*N):
     z.flat[i] = i
-    drawnow(draw_fig_real, show_once=False, confirm=False)
+    drawnow(draw_fig_real, show_once=False, confirm=True)

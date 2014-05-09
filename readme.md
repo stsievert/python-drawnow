@@ -11,9 +11,8 @@ iteration. This feature adds that functionality to matplotlib.
 Usage:
     
 ```python
-from drawnow import refresh
+from drawnow import drawnow
 
-ion() # enable interactivity, can be default
 x = zeros((N,N))
 
 def function_to_draw_figure():
@@ -21,11 +20,11 @@ def function_to_draw_figure():
     imshow(x) # python's global scope
     #show()   # don't call show()!
 
+ion() # enable interactivity, can be default
 figure()
 for i in arange(x):
     x.flat[i] = 1
     refresh(function_to_draw_figure)
-    #show()
 ```
 
 If you want to wait for confirmation after update, call `refresh(function_to_draw_figure, confirm=True)`.

@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name         = 'drawnow',
   packages     = ['drawnow'], # this must be the same as the name above
-  version      = '0.3',
+  version      = '0.4',
   description  = 'MATLAB-like drawnow',
   author       = 'Scott Sievert',
   author_email = 'sieve121@umn.edu',
