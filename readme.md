@@ -27,10 +27,10 @@ for i in arange(x):
     drawnow(function_to_draw_figure)
 ```
 
-If you want to wait for confirmation after update, call `refresh(function_to_draw_figure, confirm=True)`.
+If you want to wait for confirmation after update, call `drawnow(function_to_draw_figure, confirm=True)`.
 
 If you only want to show the figure once, call
-`refresh(function_to_draw_figure, show_once=True)`
+`drawnow(function_to_draw_figure, show_once=True)`
 
 ### Installation
 Two options:
