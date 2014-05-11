@@ -1,0 +1,9 @@
+README.txt
+setup.cfg
+setup.py
+drawnow/__init__.py
+drawnow/drawnow.py
+drawnow.egg-info/PKG-INFO
+drawnow.egg-info/SOURCES.txt
+drawnow.egg-info/dependency_links.txt
+drawnow.egg-info/top_level.txt
