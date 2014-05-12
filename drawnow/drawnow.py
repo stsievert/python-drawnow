@@ -36,11 +36,11 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
       >>>     drawnow(draw_fig_real)
     """
 
-    # get the kwargs
+    # unpacking kw args (found online)
     kw = dict()
     kw.update(kwargs)
 
-    # draw current figure
+    # replace the current figure w/o opening new GUI
     clf()
     draw_fig(*argv, **kw)
 
