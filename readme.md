@@ -39,5 +39,5 @@ Two options:
 2. Run `pip install drawnow`.
 
 #### Changes to code
-This *does* require *small* changes to your code. All it should really amount
+This does require *small* changes to your code. All it should really amount
 to is moving `figure(); plot(...); show()` inside a function; not much.
