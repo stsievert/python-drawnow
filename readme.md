@@ -9,9 +9,11 @@ iteration. This feature adds that functionality to matplotlib.
 
 Example:
 
-![example][ex]
+<!--![example][ex]-->
 
-[ex]:https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif
+<img src="https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif" width="520" height="292"> 
+
+<!--[ex]:https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif-->
 
 
 Usage:
