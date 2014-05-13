@@ -11,7 +11,7 @@ Example:
 
 ![example][ex]
 
-[ex]:
+[ex]:https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif
 
 
 Usage:
