@@ -11,7 +11,7 @@ Example:
 
 <!--![example][ex]-->
 
-<img align="center" src="https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif" width="520" height="292"> 
+<img src="https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif" width="520" height="292"> 
 
 <!--[ex]:https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif-->
 
