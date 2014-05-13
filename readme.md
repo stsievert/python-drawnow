@@ -7,6 +7,12 @@ running a simulation and want to see the results every iteration. It'd sure be
 nice if Python/matplotlib had a similar feature to update the plot each
 iteration. This feature adds that functionality to matplotlib.
 
+Example:
+
+![example][ex]
+
+[ex]:
+
 
 Usage:
     
