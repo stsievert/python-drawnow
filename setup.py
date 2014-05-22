@@ -2,7 +2,7 @@ from setuptools import setup
 setup(
   name             = 'drawnow',
   packages         = ['drawnow'],
-  version          = '0.44',
+  version          = '0.54',
   description      = 'MATLAB-like drawnow',
   author           = 'Scott Sievert',
   author_email     = 'sieve121@umn.edu',
