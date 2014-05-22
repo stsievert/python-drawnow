@@ -1,4 +1,5 @@
 from matplotlib.pyplot import clf, show, draw
+import pdb
 
 def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     """A function to refresh the current figure.
@@ -16,22 +17,29 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
                the keywords to pass to ``draw_fig()``
     show_once, optional : bool, default == False. 
                If True, will call show() instead of draw(). 
+    confirm, optional : bool, default == False
+               If True, wait for user input after each iteration and present
+               option to drop to python debugger (pdb).
 
     Limitations
     -----------
+    - Occaisonally ignores Ctrl-C.
     - If two figures open and focus moved between figures, then other figure
       gets cleared.
-    - Occaisonally ignores Ctrl-C.
 
     Usage Example
     -------------
       >>> def draw_fig_real():
+      >>>     #figure() # don't call, otherwise opens new window
       >>>     imshow(z, interpolation='nearest')
       >>>     colorbar()
+      >>>     #show()
+
       >>> N = 16
       >>> z = zeros((N,N))
 
       >>> ion()
+      >>> figure()
       >>> for i in arange(N*N):
       >>>     z.flat[i] = 0
       >>>     drawnow(draw_fig_real)
@@ -47,4 +55,8 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
 
     if show_once: show()
     else: draw()
-    if confirm: raw_input('Hit <Enter> to continue')
+    if confirm: 
+        string = raw_input('Hit <Enter> to continue, "d<Enter>" for debugger: ')
+        if string == 'd':
+            print 'Type "exit" to continue program\n'
+            pdb.runeval('u')
