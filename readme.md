@@ -1,3 +1,4 @@
+<!--update with python setup.py upload-->
 
 ### `drawnow` for matplotlib
 
@@ -9,22 +10,18 @@ iteration. This feature adds that functionality to matplotlib.
 
 Example:
 
-<!--![example][ex]-->
-
 <img src="https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif" width="520" height="292"> 
-
-<!--[ex]:https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif-->
-
 
 Usage:
     
 ```python
-from drawnow import drawnow
+from pylab import *
+from drawnow import drawnow, figure
+# plt.figure() must be imported before drawnow.figure()
 
 x = zeros((N,N))
 
-ion() # enable interactivity, can be default
-figure() # drawnow needs figure to clear
+figure()
 def function_to_draw_figure():
     #figure() # don't call, otherwise new window opened
     imshow(x) # python's global scope
@@ -44,8 +41,8 @@ If you only want to show the figure once, call
 ### Installation
 Two options:
 
-1. Download this repository and run `python setup.py install`.
-2. Run `pip install drawnow`.
+1. Run `pip install drawnow`.
+2. Download this repository and run `python setup.py install`.
 
 #### Changes to code
 This does require *small* changes to your code. All it should really amount
