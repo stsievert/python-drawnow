@@ -1,5 +1,6 @@
 from matplotlib.pyplot import clf, show, draw
 import matplotlib.pyplot as plt
+import sys
 import pdb
 
 def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
@@ -30,6 +31,8 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
 
     Usage Example
     -------------
+      >>> from pylab import * # import matplotlib before drawnow
+      >>> from drawnow import drawnow, figure
       >>> def draw_fig_real():
       >>>     #figure() # don't call, otherwise opens new window
       >>>     imshow(z, interpolation='nearest')
@@ -39,7 +42,6 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
       >>> N = 16
       >>> z = zeros((N,N))
 
-      >>> ion()
       >>> figure()
       >>> for i in arange(N*N):
       >>>     z.flat[i] = 0
@@ -57,12 +59,11 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     if show_once: show()
     else: draw()
     if confirm: 
-        string = raw_input('Hit <Enter> to continue, enter "d<Enter>" for \
-                                debugger and "x" to exit: ')
-        #if string == 'x':
-            #break
-        if string == 'd':
-            print 'Type "exit" to continue program\n'
+        string = raw_input('Hit <Enter> to continue ("d" for debugger and "x" to exit): ')
+        if string == 'x' or string=='exit':
+            sys.exit()
+        if string == 'd' or string=='debug':
+            print '\nType "exit" to continue program execution\n'
             pdb.runeval('u')
 
 def figure(*args, **kwargs):
@@ -70,6 +71,16 @@ def figure(*args, **kwargs):
     Enable drawnow. This function just enables interactivity then
     call's matplotlib's ion() to enable interactivity. Any arguments passed to
     this function are then passed to plt.figure()
+
+    This function only enables interactivity and calls figure. To implement
+    interactivity yourself, call plt.ion()
+
+    Parameters
+    ----------
+    *argv    : any
+               pass these arguments to plt.figure
+    **kwargs : any
+               pass these arguments to plt.figure
     """
     plt.ion()
     plt.figure(*args, **kwargs)
