@@ -1,4 +1,5 @@
 from matplotlib.pyplot import clf, show, draw
+import matplotlib.pyplot as plt
 import pdb
 
 def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
@@ -23,7 +24,7 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
 
     Limitations
     -----------
-    - Occaisonally ignores Ctrl-C.
+    - Occaisonally ignores Ctrl-C especially while processing LaTeX.
     - If two figures open and focus moved between figures, then other figure
       gets cleared.
 
@@ -56,7 +57,19 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     if show_once: show()
     else: draw()
     if confirm: 
-        string = raw_input('Hit <Enter> to continue, "d<Enter>" for debugger: ')
+        string = raw_input('Hit <Enter> to continue, enter "d<Enter>" for \
+                                debugger and "x" to exit: ')
+        #if string == 'x':
+            #break
         if string == 'd':
             print 'Type "exit" to continue program\n'
             pdb.runeval('u')
+
+def figure(*args, **kwargs):
+    """
+    Enable drawnow. This function just enables interactivity then
+    call's matplotlib's ion() to enable interactivity. Any arguments passed to
+    this function are then passed to plt.figure()
+    """
+    plt.ion()
+    plt.figure(*args, **kwargs)

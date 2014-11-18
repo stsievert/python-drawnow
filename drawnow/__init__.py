@@ -1,1 +1,1 @@
-from drawnow import drawnow
+from drawnow import drawnow, figure
