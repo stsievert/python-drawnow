@@ -11,7 +11,9 @@ the figure, `drawnow`. This bring the same feature to Python, with some extras.
 
 Example:
 
-<img src="tests/test.gif" width="520" height="292"> 
+<img src="tests/test.gif">
+
+<!--width="520" height="292"> -->
 
 This is shown with `imshow`, but python-drawnow allows updates of any figure.
 
