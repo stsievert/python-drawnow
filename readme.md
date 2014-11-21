@@ -1,34 +1,38 @@
-<!--update with python setup.py upload-->
+<!--XXX: UPDATE WITH-->
+<!--python setup.py build-->
+<!--python setup.py sdist upload-->
 
 ### `drawnow` for matplotlib
 
-Matlab<sup>®</sup> has a great feature where it allows you to update a figure. You can
-simply call `drawnow` and have your figure update. This is nice if you're
-running a simulation and want to see the results every iteration. It'd sure be
-nice if Python/matplotlib had a similar feature to update the plot each
-iteration. This feature adds that functionality to matplotlib.
+The scientific community often runs iterative code, often in the form of
+simulation. It's often useful to see the results after each iteration.
+Accordingly, MATLAB<sup>®</sup> has a nice feature that allows you to update
+the figure, `drawnow`. This bring the same feature to Python, with some extras.
 
 Example:
 
-<img src="https://raw.githubusercontent.com/scottsievert/python-drawnow/master/example.gif" width="520" height="292"> 
+<img src="tests/test.gif" width="520" height="292"> 
+
+This is shown with `imshow`, but python-drawnow allows updates of any figure.
 
 Usage:
     
 ```python
 from pylab import *
 from drawnow import drawnow, figure
-# plt.figure() must be imported before drawnow.figure()
-
-x = zeros((N,N))
+# if imported into the global namespace, plt.figure() must be imported
+# before drawnow.figure()
 
 figure()
 def function_to_draw_figure():
     #figure() # don't call, otherwise new window opened
-    imshow(x) # python's global scope
+    imshow(x, interpolation='nearest') # python's global scope
     #show()   # don't call show()!
 
-for i in arange(x):
-    x.flat[i] = 1
+N = 10
+x = zeros((N,N))
+for i in arange(N):
+    x[i, i] = 1
     drawnow(function_to_draw_figure)
 ```
 
@@ -37,6 +41,8 @@ debugger, call `drawnow(function_to_draw_figure, confirm=True)`.
 
 If you only want to show the figure once, call
 `drawnow(function_to_draw_figure, show_once=True)`
+
+The full documentation is included in the doc strings.
 
 ### Installation
 Two options:
