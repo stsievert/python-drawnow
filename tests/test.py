@@ -1,8 +1,6 @@
 from __future__ import division
-#from pylab import zeros, arange, figure, ion, colorbar, imshow, plot, linspace, pi, sin, exp
 from pylab import *
 from drawnow import drawnow, figure
-from scipy.special import jn
 from time import sleep
 
 def draw_fig():
@@ -17,8 +15,7 @@ seed(41)
 figure(figsize=(4, 4))
 x = eye(N) * 1 + randn(N,N) / 40
 for i in arange(N):
-    r = rand() + 0.3
-    if r > 1: r = 1
+    r = rand()*(1-0.3) + 0.3
     x[i, i-5] += r
     drawnow(draw_fig, confirm=False, show_once=False)
     sleep(0.1)

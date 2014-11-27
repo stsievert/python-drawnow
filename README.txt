@@ -7,6 +7,7 @@ running a simulation and want to see the results every iteration. It'd sure be
 nice if Python/matplotlib had a similar feature to update the plot each
 iteration. This package adds that functionality to matplotlib.
 
+This readme is probably out of date; a more complete file is on Github.
 
 Usage:
     

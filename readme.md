@@ -2,18 +2,17 @@
 <!--python setup.py build-->
 <!--python setup.py sdist upload-->
 
-### `drawnow` for matplotlib
+## `drawnow` for matplotlib
 
 The scientific community often runs iterative code, often in the form of
 simulation. It's often useful to see the results after each iteration.
 Accordingly, MATLAB<sup>®</sup> has a nice feature that allows you to update
-the figure, `drawnow`. This bring the same feature to Python, with some extras.
+the figure, `drawnow`. This repo brings the same feature to Python's
+matplotlib, with some extras.
 
 Example:
 
-<img src="tests/test.gif">
-
-<!--width="520" height="292"> -->
+![](tests/test.gif)
 
 This is shown with `imshow`, but python-drawnow allows updates of any figure.
 
@@ -38,20 +37,23 @@ for i in arange(N):
     drawnow(function_to_draw_figure)
 ```
 
+## Documentation
 If you want to wait for confirmation after update or the option to drop into a
 debugger, call `drawnow(function_to_draw_figure, confirm=True)`.
 
 If you only want to show the figure once, call
 `drawnow(function_to_draw_figure, show_once=True)`
 
+`drawnow` does not work in IPython's QtConsole at least for me.
+
 The full documentation is included in the doc strings.
 
-### Installation
+## Installation
 Two options:
 
 1. Run `pip install drawnow`.
 2. Download this repository and run `python setup.py install`.
 
-#### Changes to code
+### Changes to code
 This does require *small* changes to your code. All it should really amount
 to is moving `figure(); plot(...); show()` inside a function; not much.

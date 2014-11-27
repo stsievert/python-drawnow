@@ -26,6 +26,8 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     Limitations
     -----------
     - Occaisonally ignores Ctrl-C especially while processing LaTeX.
+    - Does not work in IPython's QtConsole. This depends on pylab's
+      interactivity (implemented via ion()) working in QtConsole.
     - The initial processing of Latex labels (typically on the x/y axis and
       title) is slow. However, matplotlib caches the results so any subsequent
       animations are pretty fast.
