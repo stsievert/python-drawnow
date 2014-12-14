@@ -17,26 +17,28 @@ Example:
 This is shown with `imshow`, but python-drawnow allows updates of any figure.
 
 Usage:
-    
+
 ```python
 from pylab import *
 from drawnow import drawnow, figure
-# if imported into the global namespace, plt.figure() must be imported
-# before drawnow.figure()
+# if global namespace, import plt.figure before drawnow.figure
 
-figure()
-def function_to_draw_figure():
-    #figure() # don't call, otherwise new window opened
-    imshow(x, interpolation='nearest') # python's global scope
-    #show()   # don't call show()!
+figure(figsize=(7, 7/2))
+def draw_fig():
+    subplot(1, 2, 1)
+    imshow(x)
 
-N = 10
-x = zeros((N,N))
-for i in arange(N):
-    x[i, i] = 1
-    drawnow(function_to_draw_figure)
+    subplot(1, 2, 2)
+    imshow(x_hat)
+    #show()
+
+x = imread('mandrill.png').mean(axis=2)
+k_values = around(logspace(0, 2, num=10))
+for k in k_values:
+    x_hat = approx(x, k)
+    drawnow(draw_fig)
 ```
-
+    
 ## Documentation
 If you want to wait for confirmation after update or the option to drop into a
 debugger, call `drawnow(function_to_draw_figure, confirm=True)`.

@@ -1,21 +1,41 @@
 from __future__ import division
 from pylab import *
-from drawnow import drawnow, figure
-from time import sleep
+from scipy.sparse.linalg import svds
+from drawnow import *
 
+def approx(x, k):
+    """ Approximate x using the SVD keeping the k largest singular values. """
+    y = zeros_like(x)
+    for i in arange(4):
+        u, sigmas, v = svd(x[:,:,i])
+        sigmas[k:] = 0
+
+        s = zeros_like(x[:,:,i])
+        fill_diagonal(s, sigmas)
+
+        color = u.dot(s).dot(v)
+        y[:,:,i] = color
+    i = argwhere(y > 1)
+    y[i[:,0], i[:,1], i[:,2]] = 1
+    return y
+
+WIDTH = 7
+figure(figsize=(WIDTH, WIDTH/2))
 def draw_fig():
-    #figure() # don't call figure or show each time!
-    imshow(x, interpolation='nearest')
-    title('Iteration %d' % i)
+    """ Uses Python's global scope """
+    subplot(1, 2, 1)
+    imshow(x, cmap='gray')
+    title('Original')
+    axis('off')
+
+    subplot(1, 2, 2)
+    imshow(x_hat, cmap='gray')
+    title('Approx with $k=%d$' % k)
+    axis('off')
     #show()
 
-N = 10
-
-seed(41)
-figure(figsize=(4, 4))
-x = eye(N) * 1 + randn(N,N) / 40
-for i in arange(N):
-    r = rand()*(1-0.3) + 0.3
-    x[i, i-5] += r
-    drawnow(draw_fig, confirm=False, show_once=False)
-    sleep(0.1)
+x = imread('mandrill.png')
+k_values = around(logspace(0.1, log10(64), num=10))
+for k in k_values:
+    x_hat = approx(x, k)
+    drawnow(draw_fig)
