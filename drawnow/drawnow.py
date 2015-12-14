@@ -1,4 +1,5 @@
-from matplotlib.pyplot import clf, show, draw
+from __future__ import print_function
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import sys
 import pdb
@@ -17,8 +18,8 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
                the list of parameters to pass ``draw_fig()``
     **kwargs : any
                the keywords to pass to ``draw_fig()``
-    show_once, optional : bool, default == False. 
-               If True, will call show() instead of draw(). 
+    show_once, optional : bool, default == False.
+               If True, will call show() instead of draw().
     confirm, optional : bool, default == False
                If True, wait for user input after each iteration and present
                option to drop to python debugger (pdb).
@@ -52,23 +53,21 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
       >>>     z.flat[i] = 0
       >>>     drawnow(draw_fig_real)
     """
-
-    # unpacking kw args (found online)
-    kw = dict()
-    kw.update(kwargs)
-
     # replace the current figure w/o opening new GUI
-    clf()
-    draw_fig(*argv, **kw)
+    plt.clf()
+    draw_fig(*argv, **kwargs)
 
-    if show_once: show()
-    else: draw()
-    if confirm: 
+    if show_once: plt.show()
+    else: plt.draw_all()
+
+    plt.pause(1e-3) # allows time to draw
+
+    if confirm:
         string = raw_input('Hit <Enter> to continue ("d" for debugger and "x" to exit): ')
         if string == 'x' or string=='exit':
             sys.exit()
         if string == 'd' or string=='debug':
-            print '\nType "exit" to continue program execution\n'
+            print('\nType "exit" to continue program execution\n')
             pdb.runeval('u')
 
 def figure(*args, **kwargs):
