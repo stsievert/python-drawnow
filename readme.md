@@ -19,6 +19,7 @@ This is shown with `imshow`, but python-drawnow allows updates of any figure.
 Usage:
 
 ```python
+# complete implementation of script found in test/test.py
 from pylab import *
 from drawnow import drawnow, figure
 # if global namespace, import plt.figure before drawnow.figure
@@ -35,7 +36,7 @@ def draw_fig():
 x = imread('mandrill.png').mean(axis=2)
 k_values = around(logspace(0, 2, num=10))
 for k in k_values:
-    x_hat = approx(x, k) # implementation in tests/test.py
+    x_hat = approx(x, k)
     drawnow(draw_fig)
 ```
     
