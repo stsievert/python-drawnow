@@ -35,7 +35,8 @@ def draw_fig():
 x = imread('mandrill.png').mean(axis=2)
 k_values = around(logspace(0, 2, num=10))
 for k in k_values:
-    x_hat = approx(x, k)
+    x_hat = approx(x, k) # implementation in tests/test.py
+    
     drawnow(draw_fig)
 ```
     
