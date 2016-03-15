@@ -20,7 +20,7 @@ def approx(x, k):
     return y
 
 WIDTH = 7
-figure(figsize=(WIDTH, WIDTH/2))
+figure(figsize=(WIDTH, WIDTH / 2))
 def draw_fig():
     """ Uses Python's global scope """
     subplot(1, 2, 1)
@@ -32,7 +32,7 @@ def draw_fig():
     imshow(x_hat, cmap='gray')
     title('Approx with $k=%d$' % k)
     axis('off')
-    #show()
+    # show()
 
 x = imread('mandrill.png')
 k_values = around(logspace(0.1, log10(64), num=10))

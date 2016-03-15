@@ -1,6 +1,6 @@
 <!--XXX: UPDATE WITH-->
-<!--python setup.py build-->
-<!--python setup.py sdist upload-->
+<!--python setup.py build-->  
+<!--python setup.py sdist upload--> 
 
 ## `drawnow` for matplotlib
 
