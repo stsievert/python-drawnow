@@ -1,2 +1,2 @@
 from drawnow import *
-__version__ = '0.72'
+__version__ = '0.71.3'
