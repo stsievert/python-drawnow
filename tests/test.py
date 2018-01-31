@@ -14,9 +14,7 @@ def approx(x, k):
         fill_diagonal(s, sigmas)
 
         color = u.dot(s).dot(v)
-        y[:,:,i] = color
-    i = argwhere(y > 1)
-    y[i[:,0], i[:,1], i[:,2]] = 1
+        y[:,:,i] = np.clip(color, 0, 1)
     return y
 
 WIDTH = 7
@@ -35,7 +33,7 @@ def draw_fig():
     # show()
 
 x = imread('mandrill.png')
-k_values = around(logspace(0.1, log10(64), num=10))
+k_values = around(logspace(0.1, log10(64), num=10)).astype('int')
 for k in k_values:
     x_hat = approx(x, k)
     drawnow(draw_fig)
