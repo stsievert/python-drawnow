@@ -1,14 +1,18 @@
 from setuptools import setup
 
+# Steps to update on PyPI:
+# 1. python setup.py sdist bdist_wheel
+# 2. twine upload dist/*
+
 setup(
     name='drawnow',
     packages=['drawnow'],
-    version='0.71.3',
+    version='0.71.4',
     description='MATLAB-like drawnow',
     author='Scott Sievert',
     author_email='stsievert@wisc.edu',
-    url='https://github.com/scottsievert/python-drawnow',
-    download_url='https://github.com/scottsievert/python-drawnow/archive/master.zip',
+    url='https://github.com/stsievert/python-drawnow',
+    download_url='https://github.com/stsievert/python-drawnow/archive/master.zip',
     keywords=['figure', 'plotting', 'visualization', 'matlab'],
     use_2to3=True,
     requires=['matplotlib'],
