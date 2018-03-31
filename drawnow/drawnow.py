@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import sys
 import pdb
 
-def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
+def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
+            *args, **kwargs):
     """A function to refresh the current figure.
 
     Depends on matplotlib's interactive mode. Similar functionality to MATLAB's
@@ -13,16 +14,18 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     Parameters
     ----------
     draw_fig : callable
-               the function that draws the figure you want to update
-    *argv    : any
-               the list of parameters to pass ``draw_fig()``
-    **kwargs : any
-               the keywords to pass to ``draw_fig()``
-    show_once, optional : bool, default == False.
-               If True, will call show() instead of draw().
-    confirm, optional : bool, default == False
-               If True, wait for user input after each iteration and present
-               option to drop to python debugger (pdb).
+        The function that draws the figure you want to update
+    show_once, optional : bool (default: False)
+        If True, will call show() instead of draw().
+    confirm, optional : bool, (default: False)
+        If True, wait for user input after each iteration and present
+        option to drop to python debugger (pdb).
+    stop_on_close, optional : bool (default: False)
+        Stop the program on system close.
+    *args : list
+        The list of parameters to pass ``draw_fig()``
+    **kwargs : dict
+        The keywords to pass to ``draw_fig()``
 
     Limitations
     -----------
@@ -55,7 +58,7 @@ def drawnow(draw_fig, show_once=False, confirm=False, *argv, **kwargs):
     """
     # replace the current figure w/o opening new GUI
     plt.clf()
-    draw_fig(*argv, **kwargs)
+    draw_fig(*args, **kwargs)
 
     if show_once: plt.show()
     else: plt.draw_all()

@@ -33,7 +33,7 @@ def draw_fig():
     imshow(x_hat)
     #show()
 
-x = imread('mandrill.png').mean(axis=2)
+x = imread('test-data/mandrill.png').mean(axis=2)
 k_values = around(logspace(0, 2, num=10))
 for k in k_values:
     x_hat = approx(x, k)
@@ -47,9 +47,10 @@ debugger, call `drawnow(function_to_draw_figure, confirm=True)`.
 If you only want to show the figure once, call
 `drawnow(function_to_draw_figure, show_once=True)`
 
-`drawnow` does not work in IPython's QtConsole at least for me.
+`drawnow` does not work in IPython's QtConsole.
 
-The full documentation is included in the doc strings.
+The full documentation is included in the doc strings. Use `drawnow?` or
+`help(drawnow)` to see these docs.
 
 ## Installation
 Two options:

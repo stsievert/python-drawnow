@@ -19,10 +19,10 @@ Usage:
 
     def function_to_draw_figure():
         #figure() # don't call, otherwise new window opened
-        imshow(x) # python's global scope
+        imshow(x)
         #show()   # don't call show()!
 
-    ion() # enable interactivity, can be default
+    ion() # enable interactivity (can be default)
     figure()
     for i in arange(x):
         x.flat[i] = 1
