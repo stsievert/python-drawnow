@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 import pdb
 
+
 def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
             *args, **kwargs):
     """A function to refresh the current figure.
@@ -21,7 +22,7 @@ def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
         If True, wait for user input after each iteration and present
         option to drop to python debugger (pdb).
     stop_on_close, optional : bool (default: False)
-        Stop the program on system close.
+        When the figure is closed, stop the program execution.
     *args : list
         The list of parameters to pass ``draw_fig()``
     **kwargs : dict
@@ -64,6 +65,10 @@ def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
     else: plt.draw_all()
 
     plt.pause(1e-3) # allows time to draw
+
+    figures = plt.get_fignums()
+    if stop_on_close and not figures:
+        sys.exit()
 
     if confirm:
         string = raw_input('Hit <Enter> to continue ("d" for debugger and "x" to exit): ')
