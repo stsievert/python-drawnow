@@ -32,7 +32,7 @@ def draw_fig():
     axis('off')
     # show()
 
-x = imread('mandrill.png')
+x = imread('test-data/mandrill.png')
 k_values = around(logspace(0.1, log10(64), num=10)).astype('int')
 for k in k_values:
     x_hat = approx(x, k)
