@@ -1,8 +1,7 @@
 from __future__ import print_function
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import sys
 import pdb
+import matplotlib.pyplot as plt
 
 
 def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
@@ -61,22 +60,26 @@ def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
     plt.clf()
     draw_fig(*args, **kwargs)
 
-    if show_once: plt.show()
-    else: plt.draw_all()
+    if show_once:
+        plt.show()
+    else:
+        plt.draw_all()
 
-    plt.pause(1e-3) # allows time to draw
+    plt.pause(1e-3)  # allows time to draw
 
     figures = plt.get_fignums()
     if stop_on_close and not figures:
         sys.exit()
 
     if confirm:
-        string = raw_input('Hit <Enter> to continue ("d" for debugger and "x" to exit): ')
-        if string == 'x' or string=='exit':
+        string = raw_input('Hit <Enter> to continue, "d" for debugger and "x" '
+                           'to exit: ')
+        if string == 'x' or string == 'exit':
             sys.exit()
-        if string == 'd' or string=='debug':
+        if string == 'd' or string == 'debug':
             print('\nType "exit" to continue program execution\n')
             pdb.runeval('u')
+
 
 def figure(*args, **kwargs):
     """
