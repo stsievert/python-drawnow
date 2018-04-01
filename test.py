@@ -36,4 +36,4 @@ x = imread('test-data/mandrill.png')
 k_values = around(logspace(0.1, log10(64), num=10)).astype('int')
 for k in k_values:
     x_hat = approx(x, k)
-    drawnow(draw_fig)
+    drawnow(draw_fig, stop_on_close=True)
