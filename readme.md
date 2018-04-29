@@ -12,7 +12,7 @@ matplotlib, with some extras.
 
 Example:
 
-![](tests/test.gif)
+![](test-data/test.gif)
 
 This is shown with `imshow`, but python-drawnow allows updates of any figure.
 
