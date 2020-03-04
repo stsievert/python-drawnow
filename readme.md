@@ -24,6 +24,10 @@ from pylab import *
 from drawnow import drawnow, figure
 # if global namespace, import plt.figure before drawnow.figure
 
+def approx(x, k):
+    """Approximate x with k singular values"""
+    ...
+
 figure(figsize=(7, 7/2))
 def draw_fig():
     subplot(1, 2, 1)
