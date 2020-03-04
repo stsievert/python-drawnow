@@ -58,6 +58,10 @@ Two options:
 1. Run `pip install drawnow`.
 2. Download this repository and run `python setup.py install`.
 
+Option 2 assumes a working Python installation with `pip`.
+I suggest Anaconda's distribution: https://www.anaconda.com/distribution/
+For other options, see https://realpython.com/installing-python/.
+
 ### Changes to code
 This does require *small* changes to your code. All it should really amount
 to is moving `figure(); plot(...); show()` inside a function; not much.

@@ -50,4 +50,5 @@ Two options:
 1. Download this repository and run `python setup.py install`.
 2. Run ``pip install drawnow``.
 
-
+Option 2 assumes a working Python installation with `pip`. I suggest Anaconda's distribution: https://www.anaconda.com/distribution/
+For information other options, see https://realpython.com/installing-python/.
