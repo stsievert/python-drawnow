@@ -13,20 +13,30 @@ Usage:
     
 .. code:: python
 
-    from drawnow import drawnow
+    # Trimmed version of test.py
+    from pylab import *
+    from drawnow import *
 
-    x = zeros((N,N))
+    def approx(x, k):
+        ...
 
-    def function_to_draw_figure():
-        #figure() # don't call, otherwise new window opened
-        imshow(x)
-        #show()   # don't call show()!
+    figure(...)
+    def draw_fig():
+        """ Uses Python's global scope """
+        subplot(1, 2, 1)
+        imshow(x, cmap='gray')
+        # ...
 
-    ion() # enable interactivity (can be default)
-    figure()
-    for i in arange(x):
-        x.flat[i] = 1
-        drawnow(function_to_draw_figure)
+        subplot(1, 2, 2)
+        imshow(x_hat, cmap='gray')
+        # ...
+        # show()
+
+    x = imread('test-data/mandrill.png')
+    k_values = around(logspace(0.1, log10(64), num=10)).astype('int')
+    for k in k_values:
+        x_hat = approx(x, k)
+        drawnow(draw_fig, stop_on_close=True)
 
 If you want to wait for confirmation after update, call ``drawnow(function_to_draw_figure, confirm=True)``.
 
