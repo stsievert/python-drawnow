@@ -27,11 +27,20 @@ def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
     **kwargs : dict
         The keywords to pass to ``draw_fig()``
 
-    Limitations
-    -----------
+    Notes
+    -----
+
+    This function does not work with the inline plotting mode, which is
+    common in Jupyter notebooks/lab, Spyder and the QTConsole. To
+    disable this, run the following "magic" command:
+
+        %matplotlib
+
+    This will disable the Matplotlib inline mode and use the default plotting backend. For more detail, see `IPython's plotting documentation`_.
+
+    Some limitations are the following:
+
     - Occaisonally ignores Ctrl-C especially while processing LaTeX.
-    - Does not work in IPython's QtConsole. This depends on pylab's
-      interactivity (implemented via ion()) working in QtConsole.
     - The initial processing of Latex labels (typically on the x/y axis and
       title) is slow. However, matplotlib caches the results so any subsequent
       animations are pretty fast.
@@ -40,21 +49,24 @@ def drawnow(draw_fig, show_once=False, confirm=False, stop_on_close=False,
 
     Usage Example
     -------------
-      >>> from pylab import * # import matplotlib before drawnow
+      >>> from pylab import *  # import matplotlib before drawnow
       >>> from drawnow import drawnow, figure
       >>> def draw_fig_real():
       >>>     #figure() # don't call, otherwise opens new window
       >>>     imshow(z, interpolation='nearest')
       >>>     colorbar()
       >>>     #show()
-
+      >>>
       >>> N = 16
       >>> z = zeros((N,N))
-
+      >>>
       >>> figure()
       >>> for i in arange(N*N):
       >>>     z.flat[i] = 0
       >>>     drawnow(draw_fig_real)
+
+    .. _IPython's plotting documentation: https://ipython.readthedocs.io/en/stable/interactive/plotting.html#id1
+
     """
     # replace the current figure w/o opening new GUI
     plt.clf()

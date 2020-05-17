@@ -62,12 +62,23 @@ into a debugger, call
 ``drawnow(function_to_draw_figure, confirm=True)``.
 
 If you only want to show the figure once, call
-``drawnow(function_to_draw_figure, show_once=True)``
-
-``drawnow`` does not work in IPython’s QtConsole.
-
-The full documentation is included in the doc strings. Use ``drawnow?``
+``drawnow(function_to_draw_figure, show_once=True)``. The full
+documentation is included in the doc strings. Use ``drawnow?``
 or ``help(drawnow)`` to see these docs.
+
+Jupyter/Spyder
+--------------
+
+Try running the folloowing code in a Jupyter input cell/in the console/etc:
+
+.. code::
+
+   %matplotlib
+
+This will disable the Matplotlin inline mode and use the default plotting
+backend. For more detail, see the `IPython plotting documentation`_.
+
+.. _IPython plotting documentation: https://ipython.readthedocs.io/en/stable/interactive/plotting.html#id1
 
 Installation
 ------------
