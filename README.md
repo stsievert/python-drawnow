@@ -20,7 +20,7 @@ figure.
 
 Usage:
 
-``` {.sourceCode .python}
+``` python
 # complete implementation of script found in test/test.py
 from pylab import *
 from drawnow import drawnow, figure
@@ -63,7 +63,7 @@ Jupyter/Spyder
 Try running the folloowing code in a Jupyter input cell/in the
 console/etc:
 
-``` {.sourceCode .}
+```
 %matplotlib
 ```
 
