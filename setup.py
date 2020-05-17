@@ -10,7 +10,7 @@ setup(
     version='0.72.1',
     description='MATLAB-like drawnow',
     author='Scott Sievert',
-    author_email='stsievert@wisc.edu',
+    author_email='dev@stsievert.com',
     url='https://github.com/stsievert/python-drawnow',
     download_url='https://github.com/stsievert/python-drawnow/archive/master.zip',
     keywords=['figure', 'plotting', 'visualization', 'matlab'],
